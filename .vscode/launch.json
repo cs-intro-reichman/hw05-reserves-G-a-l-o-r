@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "StdDraw",
+            "request": "launch",
+            "mainClass": "StdDraw",
+            "projectName": "hw05-reserves-G-a-l-o-r_5602fcaf"
+        },
+        {
+            "type": "java",
+            "name": "In",
+            "request": "launch",
+            "mainClass": "In",
+            "projectName": "hw05-reserves-G-a-l-o-r_5602fcaf"
+        },
+        {
+            "type": "java",
             "name": "GameOfLife",
             "request": "launch",
             "mainClass": "GameOfLife",
