@@ -63,16 +63,14 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		//// Replace the following statement with your code.
-		return null;
-	}
-	
-	// Creates a new board from the given board, using the rules of the game.
-	// Uses the cellValue(board,i,j) function to compute the value of each 
-	// cell in the new board. Returns the new board.
-	public static int[][] evolve(int[][] board) {
-		//// Replace the following statement with your code.
-		return null;
+		for (int i = 1; i < board.length; i++) {
+			if (in.isEmpty()) return board;
+			String row = in.readLine();
+			for (int j = 0; j < row.length(); j++) {
+				board[i][j + 1] = row.charAt(j) == 'x' ? 1 : 0;
+			}
+		}
+		return board;
 	}
 
 	// Returns the value that cell (i,j) should have in the next generation.
@@ -84,23 +82,36 @@ public class GameOfLife {
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
-	public static int cellValue(int[][] board, int i, int j) {
-		//// Replace the following statement with your code.
-		return 0;
+	public static int[][] evolve(int[][] board) {
+		int[][] nextGen = new int[board.length][board[0].length];
+		for (int i = 1; i < board.length - 1; i++){
+			for (int j = 1; j < board.length - 1; j++)
+				nextGen[i][j] = cellValue(board, i, j);
+		}
+		return nextGen;
+	
 	}
 	
 	// Counts and returns the number of living neighbors of the given cell
 	// (The cell itself is not counted).
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
-	public static int count(int[][] board, int i, int j) {
-		//// Replace the following statement with your code.
-		return 0;
+	public static int cellValue(int[][] board, int i, int j) {
+		int neighbors = 0;
+		for (int k = i - 1; k < i + 2; k++) 
+			for (int l = j - 1; l < j + 2; l++) 
+				if (!(k == i && l == j) && board[k][l] == 1) neighbors++;
+		return neighbors;
 	}
 	
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
     public static void print(int[][] arr) {
-		//// Write your code here.
+		for (int i = 1; i < arr.length - 1; i++) {
+			for (int j = 1; j < arr[0].length - 1; j++) {
+				System.out.printf("%3s", arr[i][j]);
+			}
+			System.out.println();
+		}
 	}
 		
     // Displays the board. Living and dead cells are represented by black and white squares, respectively.
