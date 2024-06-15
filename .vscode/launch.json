@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TesterGameOfLife",
+            "request": "launch",
+            "mainClass": "TesterGameOfLife",
+            "projectName": "hw05-reserves-G-a-l-o-r_8724c464"
+        },
+        {
+            "type": "java",
             "name": "StdDraw",
             "request": "launch",
             "mainClass": "StdDraw",
